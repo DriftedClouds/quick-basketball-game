@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("multiplier is " + multiplier);
+        //Debug.Log("multiplier is " + multiplier);
     }
 
     public void StartGame()
@@ -42,6 +42,9 @@ public class GameController : MonoBehaviour
         restartScreen.SetActive(false);
 
         timeLeft = fullGameTime;
+        score = 0;
+        CounterText.text = "Score : " + score;
+
         mainScreen.SetActive(false);
         isGameActive = true;
         panelManager.SpawnNewPanel();
@@ -97,7 +100,7 @@ public class GameController : MonoBehaviour
     public void ScoreBasket()
     {
         score += baseScore * multiplier;
-        CounterText.text = "Count : " + score;
+        CounterText.text = "Score : " + score;
         ResetMultiplier();
         //Remove this if panels are done automatically
         panelManager.SpawnNewPanel();
