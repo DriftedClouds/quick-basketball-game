@@ -12,17 +12,20 @@ public class ArrowController : MonoBehaviour
     private float maxRotationZ = 90.0f;
     private float yAngle;
     private float zAngle;
+    //Game Controller is used to see if we are in the middle of an active game
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
         pivotTarget = GameObject.Find("Arrow Pivot Target");
+        gameController = GameObject.Find("Game Manager").GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space) && gameController.CheckIfGameActive())
         {
             AdjustAngle();
         }

@@ -37,8 +37,7 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
-        //If this is a restart, then disable restart screen. If this is a start, then this does nothing
-        //TODO reset the score when you restart the game
+        //If this is a restart, then remove the restart screen from player view. If this is a first start, then this does nothing.
         restartScreen.SetActive(false);
 
         timeLeft = fullGameTime;
