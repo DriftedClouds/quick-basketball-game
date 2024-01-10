@@ -72,10 +72,12 @@ public class ArrowController : MonoBehaviour
         Debug.Log("rotation is now " + transform.rotation);
     }
 
-    //TODO if angle greater than 360, throw an exception
-    //Euler angles go from 0 to 360, this converts those angles to go from -180 to 180
+    //Euler angles go from 0 to 360, this converts those angles to go from -180 to 180.
     private float ConvertAngleToNegative(float angle)
     {
+        //Converts angle to make sure that it isn't above 360
+        angle %= 360;
+
         float negativeAngle;
         if (angle > 180)
         {
