@@ -23,12 +23,9 @@ public class PanelManager : MonoBehaviour
     private List<PanelSpawnTransform> PanelTransforms = new List<PanelSpawnTransform>();
     private GameObject currentPanel;
 
-    //TODO 
-    //Next thing I will do is update gamecontroller to spawn a new panel after every basket, we'll see if that game mode is more fun.
-    //Users can decide if they want to shoot the normal basket or the side ones. Then add the text over everything and ability to restart game.
-    //Will be RNG heavy because of the panel colors. Could try and find a way to make it more consistent.
+    //TODO
+    //Game is RNG heavy because of the panel colors. Could try and find a way to make it more consistent.
 
-    //TODO This enum isn't needed and can be removed
     private enum Location
     {
         Left,
@@ -90,7 +87,9 @@ public class PanelManager : MonoBehaviour
                 Destroy(currentPanel);
             }
 
-            //get a spawn position and rotation? Maybe get a random # then that will return position and rotation for that #.
+            //TODO
+            //Can make the game more interesting by getting a spawn position and rotation.
+            //Maybe get a random # then that will return position and rotation for that #.
             currentPanel = Instantiate(panelPrefabs[index], GetSpawnPosition(locationIndex), panelPrefabs[index].transform.rotation * GetSpawnRotation(locationIndex));
         }
     }

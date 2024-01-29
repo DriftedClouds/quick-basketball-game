@@ -23,10 +23,8 @@ public class BallController : MonoBehaviour
     private Vector3 originalPos;
     private Quaternion originalRot;
 
-    //TODO add baskets, and special panels to bounce off of for extra points. Panels will appear/disappear and vary in value.
-    //TODO create automatic shots that we know will go in and bounce off the panels, for testing purposes
     // Start is called before the first frame update
-    //TODO create a key that will automatically use the perfect power/angle for shooting off the side, for test purposes
+
     void Start()
     {
         originalPos = transform.position;
@@ -51,8 +49,6 @@ public class BallController : MonoBehaviour
                 powerBar.fillAmount = power * 3.33f / 100;
             }
 
-            //TODO reset ball after a shot
-            //TODO don't allow another shot to happen until ball is reset.
             if (Input.GetKeyUp(KeyCode.Space) && ballIsReady)
             {
                 Shoot();
@@ -120,6 +116,7 @@ public class BallController : MonoBehaviour
         Shoot();
     }
 
+    //This shot is designed to go in the majority of the time off the right wall. Useful for testing.
     public void TrickShot()
     {
         power = 15.9f;

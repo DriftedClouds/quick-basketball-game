@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    //TODO 
+    //Prevent score from changing when game is not active
+    //Save a high score
+    //Change image of the arrow
+    //Find a way to make the experience smoother if player hits space extremely quickly twice
+    //Add ability to convert controls for y axis
+
     public Text timerText;
     public Text CounterText;
     public GameObject mainScreen;
@@ -34,6 +41,7 @@ public class GameController : MonoBehaviour
     {
         //Debug.Log("multiplier is " + multiplier);
     }
+
 
     public void StartGame()
     {
