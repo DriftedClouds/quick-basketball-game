@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    //TODO 
-    //Prevent score from changing when game is not active
+    //TODO
     //Save a high score
     //Change image of the arrow
-    //Find a way to make the experience smoother if player hits space extremely quickly twice
-    //Add ability to convert controls for y axis
+    //Find a way to make the experience smoother if player hits space extremely quickly twice (set a minimum speed)
+    //Add option to convert controls for y axis
 
     public Text timerText;
     public Text CounterText;
@@ -106,11 +105,16 @@ public class GameController : MonoBehaviour
 
     public void ScoreBasket()
     {
-        score += baseScore * multiplier;
-        CounterText.text = "Score : " + score;
-        ResetMultiplier();
-        //Remove this if panels are done automatically
-        panelManager.SpawnNewPanel();
+
+        //Basket should not be counted if the game is not currently active
+        if (CheckIfGameActive())
+        {
+            score += baseScore * multiplier;
+            CounterText.text = "Score : " + score;
+            ResetMultiplier();
+            //Remove this if panels are done automatically
+            panelManager.SpawnNewPanel();
+        }
     }
 
 
