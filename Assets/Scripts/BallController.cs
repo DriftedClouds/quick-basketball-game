@@ -12,7 +12,9 @@ public class BallController : MonoBehaviour
     private float powerMax = 30.0f;
     private float powerMin = 0.0f;
     private float powerIncrement = 30.0f;
+    private float minimumReleasePower = 1.0f;
     private bool powerIsIncreasing = true;
+
     private Vector3 direction = new Vector3(-1.0f, 0.5f, 0.5f);
     private Rigidbody playerRb;
     private GameObject arrow;
@@ -93,6 +95,8 @@ public class BallController : MonoBehaviour
 
     private void Shoot()
     {
+        //Set minimum power to guarantee ball will move past the beginning area without taking too much time
+        power = System.Math.Max(power, minimumReleasePower);
         direction = arrow.GetComponent<ArrowController>().GetArrowDirection();
         playerRb.AddForce(direction * power, ForceMode.Impulse);
         Debug.Log("direction is " + direction);
